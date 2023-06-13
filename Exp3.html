@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Login Page</title>
+<script type="text/javascript">
+function fun() 
+{
+var userv = document.forms[0].user.value;
+var passv =document.forms[0].password.value;
+var emailv =document.forms[0].email.value;
+var phv =document.forms[0].ph.value;
+				
+var userreg=new RegExp("^[a-zA-Z][a-zA-Z0-9]*$");
+var emailreg=new RegExp("^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$");
+var phreg=new RegExp("^[0-9]{10}$");                                       
+                
+				
+var ruser=userreg.exec(userv);
+var remail=emailreg.exec(emailv);
+var rph=phreg.exec(phv);
+				
+if((passv.length>6)){
+alert(" Congrats you are registered ");
+return true;
+}
+else{
+if(!(ruser && userv.length>6))
+{
+alert("username is invalid");
+document.forms[0].user.focus();
+}
+if(!remail)
+{
+alert("email is invalid");
+document.forms[0].email.focus();
+}
+if(!rph)
+{
+alert("phone number is invalid");
+document.forms[0].phone.focus();
+}
+if(passv.length<6)
+{
+alert("the password is invalid");
+document.forms[0].pwd.focus();
+}
+return false;
+}
+}
+</script>
+<style>
+body
+{
+background-image:url(ag.jpg);
+background-position:center;
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+</style>
+</head>
+ 
+<body>
+
+<h1 style="text-align: center;">Enchanted Florist of Paris</h1>
+<h3 style="text-align: center;">The Florist to fulfill your bouquet needs</h3>
+<h3 style="text-align: center;">Since 1980</h3>
+<form action="" onSubmit="return fun()" >
+<pre><strong>
+<table align="center">
+<tr>
+<h1><th align="left">Name: </th><h1>
+<td align="center"><input type="text" name="user" size="30" /></td>
+</tr>
+<tr>
+<th align="left">Type of flower: </th> 
+<td align="center"><input type="text" name="type" size="30" /></td>
+</tr>
+<tr>
+<th align="left">Colour: </th>
+<td align="center"><input type="text" name="colour" size="30" /></td>
+</tr>
+<tr>
+<th align="left">Phone No: 
+<td align="center"><input type="text" name="ph" size="30" /></td>
+</tr>
+</table>
+<center><input type="submit" value="Submit" />    <input type="reset" value="Reset" /></center>
+</form>
+</strong></pre>
+</body>
+</html>
